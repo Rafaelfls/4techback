@@ -133,7 +133,7 @@ module.exports = routes => {
 
         // com firebase
         try {
-            await db.doc(req.params.jobId).delete(req.body)
+            await db.doc(req.params.jobId).delete()
             return res.send(`A vaga ${req.params.jobId} foi removida com sucesso`)
         } catch (error) {
             return res.status(500).send(error)
