@@ -79,9 +79,11 @@ module.exports = routes => {
         // }
 
         try {
-            await db.doc().set(req.body)
+            // await db.doc().set(req.body)
+            const result = await db.add(req.body)
 
-            return res.send('Job added successfuly!')
+            // return res.send('Job added successfuly!')
+            return res.send(result.id)
             
         } catch (error) {
             return res.status(500).send(error)            
